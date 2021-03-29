@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+    <class name="module.model.User" table="users">
+        <id name="id" column="id" type="long">
+            <generator class="identity"/>
+        </id>
+        <property name="fullName" column="full_name"/>
+        <property name="login" column="login" unique="true" not-null="true"/>
+        <property name="email" column="email" unique="true" not-null="true"/>
+        <property name="age" type="integer">
+            <column name="age" check="age > 18"/>
+        </property>
+        <property name="subscriptions" formula="select subscriptions.subscriptions from subscriptions where user_id = users.id"/>
+        <property name="isAuthor" type="boolean" column="is_author"/>
+        <property name="isModerator" type="boolean" column="is_moderator"/>
+        <property name="followers" formula="select followers.followers from followers where user_id = users.id"/>
+    </class>
+</hibernate-mapping>
