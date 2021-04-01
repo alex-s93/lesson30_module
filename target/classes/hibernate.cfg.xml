@@ -9,11 +9,12 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/lesson30_module</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">Great123</property>
-        <property name="show_sql">false</property>
+        <property name="show_sql">true</property>
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
-        <property name="hbm2ddl.auto">update</property>
+<!--        <property name="hbm2ddl.auto">update</property>-->
+        <property name="hbm2ddl.auto">create-drop</property>
 
-        <mapping resource="module.model.xml/User.hbm.xml"/>
-        <mapping resource="module.model.xml/Post.hbm.xml"/>
+        <mapping class="com.alevel.module3.model.User"/>
+        <mapping class="com.alevel.module3.model.Post"/>
     </session-factory>
 </hibernate-configuration>

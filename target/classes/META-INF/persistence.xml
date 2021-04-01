@@ -4,10 +4,8 @@
              version="2.0">
     <!--задаём имя конкретного persistence unit (а их может быть несколько) и его опции-->
     <persistence-unit name="jpa.hibernate">
-        <class>module.model.User</class>
-        <class>module.model.Post</class>
-        <class>module.model.Subscription</class>
-        <class>module.model.Follower</class>
+        <class>com.alevel.module3.model.User</class>
+        <class>com.alevel.module3.model.Post</class>
      <properties>
             <!--это опция говорит Hibernate, что надо сканировать все классы,
                 имеющие аннотацию @Entity и обновить схему таблицы базы данных
